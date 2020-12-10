@@ -12,3 +12,6 @@ characters = [
     "le chat potté",
     "Kirikou"
 ]
+input("C'est un nouveau commit, lucie tu le reçois??" )
+
+
