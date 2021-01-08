@@ -1,0 +1,48 @@
+Souche;Fille de...;Genotype
+1;;DELTApgi
+2;1;DELTApgi gntK(-)
+3;1;DELTApgi eda(-)
+4;1;DELTApgi rbsK(+)
+5;;DELTArpe
+6;5;DELTArpe kdgK(-)
+7;5;DELTArpe DELTAghrB
+8;;rbsK(+)
+9;8;rbsK(+) gntK(-)
+10;8;rbsK(+) gntK(+)
+11;8;rbsK(+) prs(+)
+12;8;rbsK(+) deoC(-)
+13;12;rbsK(+) deoC(-) fbaB(fbr)
+14;12;rbsK(+) deoC(-) eda(-)
+15;;phnN(fbr)
+16;13;phnN(fbr) gntK(+)
+17;13;phnN(fbr) DELTArpiA
+18;13;phnN(fbr) DELTApgi
+19;;deoC(-)
+20;19;deoC(-) DELTArpe
+21;19;deoC(-) hisC(-)
+22;19;deoC(-) ::gcd
+23;22;deoC(-) ::gcd gntK(-)
+24;22;deoC(-) ::gcd hisC(-)
+25;22;deoC(-) ::gcd zwf(fbr)
+26;19;deoC(-) gntK(+)
+27;19;deoC(-) DELTAghrB
+28;19;deoC(-) zwf(fbr)
+29;19;deoC(-) ::gnd
+30;;hisI(fbr)
+31;30;hisI(fbr) hisH(+)
+32;;DELTAyggF
+33;32;DELTAyggF ::hisA
+34;32;DELTAyggF DELTAhisB
+35;32;DELTAyggF eda(-)
+36;32;DELTAyggF gntK(-)
+37;36;DELTAyggF gntK(-) prs(+)
+38;36;DELTAyggF gntK(-) hisH(+)
+39;36;DELTAyggF gntK(-) DELTArpiA
+40;;::hisA
+41;40;::hisA DELTApgi
+42;40;::hisA prs(+)
+43;40;::hisA hisC(-)
+44;40;::hisA DELTAyggF
+45;44;::hisA DELTAyggF hisH(+)
+46;44;::hisA DELTAyggF deoC(-)
+47;44;::hisA DELTAyggF rbsK(-)
