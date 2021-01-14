@@ -5,7 +5,7 @@ import csv
 from AnaVi.Script_génération_carte.classGeno import Geno
 #from AnaVi.Script_génération_carte import tablGeno
 
-#file = tablGeno
+file = "tablGeno.csv"
 
 
 ###########################################
@@ -15,7 +15,6 @@ from AnaVi.Script_génération_carte.classGeno import Geno
 def __repr__(pli):
     print("pliArray: Strain({}), daughter({}), genotype({}))".format(
         pli.strain, pli.daughter, pli.genotype))
-
 
 def csv_tablo_Geno(file):
     csv.register_dialect('myDialect', delimiter=';', quotechar='|')
@@ -42,3 +41,5 @@ def csv_tablo_Geno(file):
     for pli in geno_array:
         __repr__(pli)
     return geno_array
+
+csv_tablo_Geno(file)
