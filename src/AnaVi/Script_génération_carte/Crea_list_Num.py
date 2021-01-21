@@ -3,12 +3,13 @@
 import csv
 from AnaVi.Script_génération_carte.classNum import Num
 
-file="tablECnum.csv"
+#file="C://Users//User//IdeaProjects//AnaVi//src//AnaVi//Script_génération_carte//tablECnum.csv"
 
 def __repr__(line):
     return(print ("listNumArray: ECnum({}), modif({})".format(line.ECnum, line.modif)))
 
 def csv_ECnum (file) :
+
     csv.register_dialect('myDialect', delimiter=';', quotechar='|')
     reader = csv.DictReader(open(file, "r"), dialect='myDialect')
 
@@ -32,5 +33,5 @@ def csv_ECnum (file) :
 
     return listNum_array
 
-csv_ECnum(file)
+#csv_ECnum(file)
 
