@@ -3,14 +3,10 @@
 import numpy as np
 import csv
 from AnaVi.Script_génération_carte.classGeno import Geno
-#from AnaVi.Script_génération_carte import tablGeno
+
 
 file = "tablGeno.csv"
 
-
-###########################################
-#   ça marche pas vraiment encore... #
-##########################################
 
 def __repr__(pli):
     print("pliArray: Strain({}), daughter({}), genotype({}))".format(
@@ -18,7 +14,7 @@ def __repr__(pli):
 
 def csv_tablo_Geno(file):
     csv.register_dialect('myDialect', delimiter=';', quotechar='|')
-    reader = csv.DictReader(open("tablGeno.csv", "r"), dialect='myDialect')
+    reader = csv.DictReader(open("file", "r"), dialect='myDialect')
 
     geno_array = []  # creation d'une liste qui va contenir la class claasGeno x nb de ligne du .csv
 

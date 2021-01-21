@@ -10,6 +10,8 @@ class Geno:
         self.daughter = None
         # String : Genotype
         self.genotype = None
+        # dictionary containing the mutations with their ec number
+        self.mutation = {}
 
     def add_trick(self, trick):
         self.tricks.append(trick)
