@@ -33,3 +33,4 @@ def csv_ECnum (file) :
     return listNum_array
 
 csv_ECnum(file)
+

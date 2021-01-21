@@ -3,7 +3,7 @@
 import os
 import csv
  
-file = open("exportBindingEnol3HNT.csv", "r")
+file = open("tablECnum.csv", "r")
  
 try:
     # Création du ''lecteur'' CSV.
