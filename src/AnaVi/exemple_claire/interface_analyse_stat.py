@@ -2,7 +2,7 @@
 
 from tkinter import filedialog
 from tkinter import *
-from fonctions import *
+from AnaVi.exemple_claire.fonctions import *
 from lxml import etree
 
 nom_fichier1 =''
