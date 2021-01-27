@@ -1,30 +1,25 @@
-from lxml import etree
 import xml.etree.ElementTree as ET
 
-class Link_svg:
+
+class LinkSvg:
 
     def __init__(self):
-        # Carte métabolique
-        self.carteM = None
+        # Metabolic map
+        self.mapM = None
 
-    def readCarte(carteM):
-        NS = {'svg': 'http://www.w3.org/2000/svg'}
-
-        #print(carteM)
-        tree = ET.parse(carteM)
+    def readmap(mapM, idrect):
+        tree = ET.parse(mapM)
         root = tree.getroot()
+        for child in root:
+            if child.tag == "{http://www.w3.org/2000/svg}g":
+                for grandchild in child:
+                    if grandchild.tag == "{http://www.w3.org/2000/svg}rect":
+                        if grandchild.attrib['id'] == idrect:
+                            print(grandchild.tag, grandchild.attrib['id'])
+                            return True
 
-        for r in root:
-            for i in r.tag:
-                print(i);
-                if i == "g":
-                    return("ok");
-                    print("tot");
-            #print(r.find(".//g").tag)
-            #id = r.get('id')
-            #print(r.tag)
-        #print(tree.findall(.//svg/g/rect.attrib['id']))
-        #print(tree.find(tree.getelementpath(id)))
 
-carte = "carte_metabolique_pentose-arginine.svg"
-print(Link_svg.readCarte(carte));
+idRect = "2.7.1.12"
+map = "carte_metabolique_pentose-arginine.svg"
+find = LinkSvg.readmap(map, idRect)
+print(find)
