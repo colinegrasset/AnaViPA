@@ -5,7 +5,7 @@ class Num:
         # String : EC number of the gene
         self.ECnum = None
         # String : modification on the gene
-        self.modif = None
+        self.Modification = None
 
 
     #Function to add the object to the list

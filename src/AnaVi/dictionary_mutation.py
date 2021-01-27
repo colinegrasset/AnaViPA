@@ -13,7 +13,7 @@ def fillingDict(fileGeno,fileECnum):
 #print(rep.groups())
 
 #path de coline
-fillingDict("C://Users//User//IdeaProjects//AnaVi//src//AnaVi//Script_génération_carte//tablGeno.csv",
-            "C://Users//User//IdeaProjects//AnaVi//src//AnaVi//Script_génération_carte//tablECnum.csv")
+fillingDict("C://Users//Utiisateur//IdeaProjects//AnaVi//src//AnaVi//Script_génération_carte//tablGeno.csv",
+            "C://Users//Utilisateur//IdeaProjects//AnaVi//src//AnaVi//Script_génération_carte//tablECnum.csv")
 
 

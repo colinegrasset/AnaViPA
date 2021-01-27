@@ -1,4 +1,5 @@
 from lxml import etree
+import xml.etree.ElementTree as ET
 
 class Link_svg:
 
@@ -7,10 +8,23 @@ class Link_svg:
         self.carteM = None
 
     def readCarte(carteM):
-        tree = etree.parse(carteM)
+        NS = {'svg': 'http://www.w3.org/2000/svg'}
+
+        #print(carteM)
+        tree = ET.parse(carteM)
         root = tree.getroot()
-        #for noeud in tree.xpath('.//svg/g/rect'):
-        #print(tree.findall('.//svg/g/rect[@id]'))
-        print(tree.find(getelementpath(id))
+
+        for r in root:
+            for i in r.tag:
+                print(i);
+                if i == "g":
+                    return("ok");
+                    print("tot");
+            #print(r.find(".//g").tag)
+            #id = r.get('id')
+            #print(r.tag)
+        #print(tree.findall(.//svg/g/rect.attrib['id']))
+        #print(tree.find(tree.getelementpath(id)))
+
 carte = "carte_metabolique_pentose-arginine.svg"
-Link_svg.readCarte(carte)
+print(Link_svg.readCarte(carte));
