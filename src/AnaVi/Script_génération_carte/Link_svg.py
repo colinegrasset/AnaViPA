@@ -15,11 +15,10 @@ class LinkSvg:
                 for grandchild in child:
                     if grandchild.tag == "{http://www.w3.org/2000/svg}rect":
                         if grandchild.attrib['id'] == idrect:
-                            print(grandchild.tag, grandchild.attrib['id'])
-                            return True
-
+                            #print(grandchild.tag, grandchild.attrib['id'])
+                            grandchild.set('style', 'opacity:0.99;fill:#e24620;fill-opacity:0.68032789;stroke-width:0.264583')
+                            tree.write('outputMap.svg')
 
 idRect = "2.7.1.12"
 map = "carte_metabolique_pentose-arginine.svg"
-find = LinkSvg.readmap(map, idRect)
-print(find)
+LinkSvg.readmap(map, idRect)
