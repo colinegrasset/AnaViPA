@@ -1,18 +1,19 @@
 #!/usr/bin/python
-# vim: set fileencoding=utf-8 :
+# vim: set encoding=utf-8 :
 import numpy as np
 import csv
 import regex
 import re
 from regex import regex
 
-from AnaVi.Script_génération_carte.Crea_list_Num import csv_ECnum
-from AnaVi.Script_génération_carte.classGeno import Geno
+
 
 
 
 #file = "C://Users//User//IdeaProjects//AnaVi//src//AnaVi//Script_génération_carte//tablGeno.csv"
-
+file="C://Users//yuibl//IdeaProjects//AnaViPA//src//AnaVi//Script_génération_carte//tablGeno.csv"
+from AnaVi.Script_génération_carte.Crea_list_Num import csv_ECnum
+from AnaVi.Script_génération_carte.classGeno import Geno
 
 
 def __repr__(pli):

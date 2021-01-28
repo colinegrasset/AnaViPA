@@ -15,7 +15,7 @@ class LinkSvg:
                 for grandchild in child:
                     if grandchild.tag == "{http://www.w3.org/2000/svg}rect":
                         if grandchild.attrib['id'] == idrect:
-                            #print(grandchild.tag, grandchild.attrib['id'])
+                            print(grandchild.tag, grandchild.attrib['id'])
                             grandchild.set('style', 'opacity:0.99;fill:#e24620;fill-opacity:0.68032789;stroke-width:0.264583')
                             tree.write('outputMap.svg')
 
