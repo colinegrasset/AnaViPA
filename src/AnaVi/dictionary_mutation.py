@@ -9,22 +9,34 @@ from AnaVi.Script_génération_carte.Crea_list_Num import csv_ECnum
 from AnaVi.Script_génération_carte.classGeno import Geno
 from AnaVi.Script_génération_carte.classNum import Num
 import regex
-
-
+import re
+#file="C://Users//yuibl//IdeaProjects//AnaViPA//src//AnaVi//Script_génération_carte//tablGeno.csv"
+#file2="C://Users//yuibl//IdeaProjects//AnaViPA//src//AnaVi//Script_génération_carte//tablECnum.csv"
 def fillingDict(fileGeno,fileECnum):
-    ListGeno = csv_tablo_Geno("tablGeno.csv")
-    ListNum=   csv_ECnum ("tablECnum.csv")
+    ListGeno = csv_tablo_Geno(fileGeno)
+    ListNum=   csv_ECnum(fileECnum)
     for pli in ListGeno:
         AllGeno = pli.genotype
         print(AllGeno)
         regle=re.compile(r"\S*")
         rep= list(regle.finditer(AllGeno))
+
         for i in rep:
             print(i.group())
+            mut=i.group()
+            print(mut)
             for pli2 in ListNum:
-                if i.group() == pli2.modif :
+                if mut == pli2.modif :
                     print(pli2.ECnum)
-                    pli.mutation={i.group():pli2.ECnum}
+                    Ec=pli2.ECnum
+                    pli.mutation[Ec] = mut
+                    #pli.mutation.update(pli2.ECnum:mut)
+                    #pli.mutation.setdefault(pli2.ECnum, []).append(i.group)
+                        #={i.group():pli2.ECnum}
+        #for i in pli.mutation.values() :
+        print("mutation enregistrer")
+        print(pli.mutation.values())
+        print(pli.mutation.keys())
         print(pli.mutation)
 
 
