@@ -1,10 +1,7 @@
 import xml.etree.ElementTree as ET
+import re
 
-#class LinkSvg:
 
-# def __init__(self):
-#     # Metabolic map
-#     self.mapM = None
 
 def legende(root):
     root.insert(3, ET.Element('ns0:rect style="fill:#f9f9f9;fill-opacity:0.26;stroke:#09a001;stroke-width:5.15906" id="rect1488" width="63.462658" height="31.731329" x="1003.5033" y="-124.28104" transform="scale(1,-1)" '))
@@ -31,7 +28,7 @@ def legende(root):
     span2 = ET.SubElement(span, 'ns0:tspan', style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:24px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Italic';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal", id="tspan1575")
     span2.text = " fbr"
 
-def readmap(mapM, idrect, modification):
+def readmap(mapM, dict):
     tree = ET.parse(mapM)
     root = tree.getroot()
     legende(root)
@@ -39,17 +36,42 @@ def readmap(mapM, idrect, modification):
         if child.tag == "{http://www.w3.org/2000/svg}g":
             for grandchild in child:
                 if grandchild.tag == "{http://www.w3.org/2000/svg}rect":
-                    if grandchild.attrib['id'] == idrect:
-                        print(grandchild.tag, grandchild.attrib['id'])
-                        grandchild.set('style', modification)
-            tree.write('outputMap.svg')
+                    for p in dict.keys():
+
+                        if grandchild.attrib['id'] == dict[p]:
+
+                            regleD = re.compile(r"^DELTA")
+                            repD = list(regleD.finditer(p))
+                            regleI = re.compile(r"^::")
+                            repI = list(regleI.finditer(p))
+                            regleSo = re.compile(r"\(-\)")
+                            repSo = list(regleSo.finditer(p))
+                            regleSu = re.compile(r"\(+\)")
+                            repSu = list(regleSu.finditer(p))
+                            regleM = re.compile(r"\(fbr\)")
+                            repM = list(regleM.finditer(p))
+
+                            print(dict[p])
+
+                            if repD != []:
+                                grandchild.set('style', deletion)
+                            elif repI != []:
+                                grandchild.set('style', insertion)
+                            elif repSo != []:
+                                grandchild.set('style', sousExpression)
+                            elif repSu != []:
+                                grandchild.set('style', surExpression)
+                            elif repM != []:
+                                grandchild.set('style', mutantFbr)
+
+    tree.write('outputMap.svg')
 
 
-# sousExpression = 'fill:#f9f9f9;fill-opacity:0.26;stroke:#f68c00;stroke-width:1.600;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1'
-# deletion = 'fill:#f9f9f9;fill-opacity:0.26;stroke:#f61800;stroke-width:1.600;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1'
-# mutantFbr = 'fill:#f9f9f9;fill-opacity:0.26;stroke-width:1.600;stroke-miterlimit:4;stroke-dasharray:none;stroke:#ab38bd;stroke-opacity:1'
-# insertion = 'fill:#f9f9f9;fill-opacity:0.26;stroke-width:1.600;stroke-miterlimit:4;stroke-dasharray:none;stroke:#4838bd;stroke-opacity:1'
-# surExpression = 'fill:#f9f9f9;fill-opacity:0.26;stroke-width:1.600;stroke-miterlimit:4;stroke-dasharray:none;stroke:#22d327;stroke-opacity:1'
+sousExpression = 'fill:#f9f9f9;fill-opacity:0.26;stroke:#f68c00;stroke-width:1.600;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1'
+deletion = 'fill:#f9f9f9;fill-opacity:0.26;stroke:#f61800;stroke-width:1.600;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1'
+mutantFbr = 'fill:#f9f9f9;fill-opacity:0.26;stroke-width:1.600;stroke-miterlimit:4;stroke-dasharray:none;stroke:#ab38bd;stroke-opacity:1'
+insertion = 'fill:#f9f9f9;fill-opacity:0.26;stroke-width:1.600;stroke-miterlimit:4;stroke-dasharray:none;stroke:#4838bd;stroke-opacity:1'
+surExpression = 'fill:#f9f9f9;fill-opacity:0.26;stroke-width:1.600;stroke-miterlimit:4;stroke-dasharray:none;stroke:#22d327;stroke-opacity:1'
 
 #idRect = "2.7.1.12"
 
