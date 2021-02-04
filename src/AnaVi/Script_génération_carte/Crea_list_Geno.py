@@ -1,19 +1,9 @@
 #!/usr/bin/python
 # vim: set encoding=utf-8 :
-import numpy as np
+
 import csv
-import regex
-import re
-from regex import regex
-
-
-
-
-
-#file = "C://Users//User//IdeaProjects//AnaVi//src//AnaVi//Script_génération_carte//tablGeno.csv"
-#file="C://Users//yuibl//IdeaProjects//AnaViPA//src//AnaVi//Script_génération_carte//tablGeno.csv"
-from AnaVi.Script_génération_carte.Crea_list_Num import csv_ECnum
 from AnaVi.Script_génération_carte.classGeno import Geno
+
 
 
 def __repr__(pli):
@@ -25,12 +15,12 @@ def csv_tablo_Geno(file):
     csv.register_dialect('myDialect', delimiter=';', quotechar='|')
     reader = csv.DictReader(open(file, "r"), dialect='myDialect')
 
-    geno_array = []  # creation d'une liste qui va contenir la class claasGeno x nb de ligne du .csv
+    geno_array = []  # create a list which contains the classGeno class X the number of line in csv file
 
     for row in reader:
-        pli = Geno()  # liste pli prendre les valeurs de la class Geno du package classGeno
+        pli = Geno()  # pli list take the values of the Geno class in classGeno package
 
-        # parcours le fichiers csv valeur par valeur en aller de gauche a droite puis passe a la ligne suivante
+        # range the csv file value by value n moving from left to right and go to the next line
         for column, value in row.items():
             if column == "Souche":
                 pli.strain = value
@@ -38,33 +28,6 @@ def csv_tablo_Geno(file):
                 pli.daughter = value
             if column == "Genotype":
                 pli.genotype = value
+            geno_array.append(pli)  # command which add a pli to the geno_array list
 
-            geno_array.append(pli)  # commande qui ajoute un pli a la liste geno_array
-
-    # file.close()
-
-    for pli in geno_array:
-        __repr__(pli)
     return geno_array
-
-def fillingDict():
-
-    ListGeno = csv_tablo_Geno("tablGeno.csv")
-    ListNum=   csv_ECnum ("tablECnum.csv")
-    for pli in ListGeno:
-        AllGeno = pli.genotype
-        print(AllGeno)
-        regle=re.compile(r"\S*")
-        rep= list(regle.finditer(AllGeno))
-        for i in rep:
-            print(i.group())
-            for pli2 in ListNum:
-                if i.group() == pli2.modif :
-                     print(pli2.ECnum)
-                     pli.mutation={i.group():pli2.ECnum}
-        print(pli.mutation)
-        #print(rep)
-        #rep.group(1)
-
-#csv_tablo_Geno(file)
-fillingDict()

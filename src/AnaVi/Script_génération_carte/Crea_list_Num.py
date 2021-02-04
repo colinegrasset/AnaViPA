@@ -1,10 +1,9 @@
 #!/usr/bin/python
 # vim: set fileencoding=utf-8 :
+
 import csv
 from AnaVi.Script_génération_carte.classNum import Num
 
-#file = "C://Users//User//IdeaProjects//AnaVi//src//AnaVi//Script_génération_carte//tablECnum.csv"
-#file="C://Users//yuibl//IdeaProjects//AnaViPA//src//AnaVi//Script_génération_carte//tablECnum.csv"
 
 
 def __repr__(line):
@@ -15,25 +14,17 @@ def csv_ECnum(file):
     csv.register_dialect('myDialect', delimiter=';', quotechar='|')
     reader = csv.DictReader(open(file, "r"), dialect='myDialect')
 
-    listNum_array = []  # create a list which is composed by Num objects
+    listNum_array = []
     for row in reader:
-        # list pli prendre les valeurs de la class plistruct du package PLIStruct
         line = Num()
 
-        for column, value in row.items():  # parcours le fichiers csv valeur par valeur en aller de gauche a droite puis passe a la ligne suivante
+        for column, value in row.items():
             if (column == "EC number"):
                 line.ECnum = value
             if (column == "Modification"):
                 line.modif = value
 
-        listNum_array.append(line)  # commande qui ajoute une ligne a la liste pliArray
-
-    #     file.close()
-
-    for line in listNum_array:
-        __repr__(line)
+        listNum_array.append(line)
 
     return listNum_array
 
-
-#csv_ECnum(file)

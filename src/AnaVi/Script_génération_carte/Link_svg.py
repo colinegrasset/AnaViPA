@@ -9,7 +9,6 @@ def legende(root):
     root.insert(5, ET.Element('ns0:rect style="fill:#f9f9f9;fill-opacity:0.26;stroke:#ab38bd;stroke-width:6.04724;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" id="rect1488-6" width="63.462658" height="31.731329" x="1004.051" y="301.17517" '))
     root.insert(6, ET.Element('ns0:rect style="fill:#f9f9f9;fill-opacity:0.26;stroke:#f61800;stroke-width:6.04724;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" id="rect1488-7" width="63.462658" height="31.731329" x="1004.1976" y="249.27013" '))
     root.insert(7, ET.Element('ns0:rect style="fill:#f9f9f9;fill-opacity:0.26;stroke:#f68c00;stroke-width:6.04724;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" id="rect1488-5" width="63.462658" height="31.731329" x="1004.2778" y="144.39932" '))
-    #root.insert(8, ET.Element("ns0":"text", xml:space="preserve", style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:24px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none", x="1082.6063", y="115.92677", id="text1531" "))
     texte = ET.SubElement(root, "ns0:text", space="preserve", style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:24px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none", x="1082.6063", y="115.92677", id="text1531")
     span = ET.SubElement(texte, 'ns0:tspan', role="line", id="tspan1529", x="1082.6063", y="115.92677")
     span.text = "Sur-expression"
@@ -29,6 +28,12 @@ def legende(root):
     span2.text = " fbr"
 
 def readmap(mapM, dict):
+    """
+    A function that modifies the map to make appear strain's modifications
+    :param mapM: the basemap
+    :param dict: the dictionary of modifications and EC number for this strain
+    :return: create the map which is an output file named "outputMap.svg"
+    """
     tree = ET.parse(mapM)
     root = tree.getroot()
     legende(root)
@@ -37,21 +42,17 @@ def readmap(mapM, dict):
             for grandchild in child:
                 if grandchild.tag == "{http://www.w3.org/2000/svg}rect":
                     for p in dict.keys():
-
-                        if grandchild.attrib['id'] == dict[p]:
-
+                        if grandchild.attrib['id'] == dict[p] or grandchild.attrib['id'] == dict[p] + "(2)":
                             regleD = re.compile(r"^DELTA")
                             repD = list(regleD.finditer(p))
                             regleI = re.compile(r"^::")
                             repI = list(regleI.finditer(p))
                             regleSo = re.compile(r"\(-\)")
                             repSo = list(regleSo.finditer(p))
-                            regleSu = re.compile(r"\(+\)")
+                            regleSu = re.compile(r"\([+]\)")
                             repSu = list(regleSu.finditer(p))
                             regleM = re.compile(r"\(fbr\)")
                             repM = list(regleM.finditer(p))
-
-                            print(dict[p])
 
                             if repD != []:
                                 grandchild.set('style', deletion)
@@ -66,17 +67,12 @@ def readmap(mapM, dict):
 
     tree.write('outputMap.svg')
 
-
+# Rectangle styles on the map according to the modification type
 sousExpression = 'fill:#f9f9f9;fill-opacity:0.26;stroke:#f68c00;stroke-width:1.600;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1'
 deletion = 'fill:#f9f9f9;fill-opacity:0.26;stroke:#f61800;stroke-width:1.600;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1'
 mutantFbr = 'fill:#f9f9f9;fill-opacity:0.26;stroke-width:1.600;stroke-miterlimit:4;stroke-dasharray:none;stroke:#ab38bd;stroke-opacity:1'
 insertion = 'fill:#f9f9f9;fill-opacity:0.26;stroke-width:1.600;stroke-miterlimit:4;stroke-dasharray:none;stroke:#4838bd;stroke-opacity:1'
 surExpression = 'fill:#f9f9f9;fill-opacity:0.26;stroke-width:1.600;stroke-miterlimit:4;stroke-dasharray:none;stroke:#22d327;stroke-opacity:1'
 
-#idRect = "2.7.1.12"
-
-#map = "carte_metabolique_pentose-arginine.svg"
-
-#LinkSvg.readmap(map, idRect, insertion)
 
 
