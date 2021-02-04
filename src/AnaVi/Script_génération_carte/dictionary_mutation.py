@@ -12,37 +12,37 @@ import re
 
 
 def fillingDict(fileGeno,fileECnum):
+
     ListGeno = csv_tablo_Geno(fileGeno)
     ListNum = csv_ECnum(fileECnum)
     for pli in ListGeno:
         AllGeno = pli.genotype
-        print(AllGeno)
+        #print(AllGeno)
         regle=re.compile(r"\S*")
         rep= list(regle.finditer(AllGeno))
         for i in rep:
-            print(i.group())
+            #print(i.group())
             for pli2 in ListNum:
                 if i.group() == pli2.modif :
-                    print(pli2.ECnum)
-                    pli.mutation={i.group():pli2.ECnum}
+                    #print(pli2.ECnum)
+                    pli.mutation = {i.group():pli2.ECnum}
 
 
-        print(pli.mutation)
-
+        #print(pli.mutation)
+    return ListGeno
 
 # path de coline
-fillingDict("C://Users//User//IdeaProjects//AnaVi//src//AnaVi//Script_génération_carte//tablGeno.csv",
-            "C://Users//User//IdeaProjects//AnaVi//src//AnaVi//Script_génération_carte//tablECnum.csv")
+#fillingDict("C://Users//User//IdeaProjects//AnaVi//src//AnaVi//Script_génération_carte//tablGeno.csv",
+#            "C://Users//User//IdeaProjects//AnaVi//src//AnaVi//Script_génération_carte//tablECnum.csv")
 
 # path de Rachel
-fillingDict("C://Users//Utilisateur//IdeaProjects//AnaViPA//src//AnaVi//Script_génération_carte//tablGeno.csv",
-            "C://Users//Utilisateur//IdeaProjects//AnaViPA//src//AnaVi//Script_génération_carte//tablECnum.csv")
+#fillingDict("C://Users//Utilisateur//IdeaProjects//AnaViPA//src//AnaVi//Script_génération_carte//tablGeno.csv",
+ #           "C://Users//Utilisateur//IdeaProjects//AnaViPA//src//AnaVi//Script_génération_carte//tablECnum.csv")
 
 # path de lucie
 #fillingDict("C://Users//yuibl//IdeaProjects//AnaViPA//src//AnaVi//Script_génération_carte//tablGeno.csv",
 #            "C://Users//yuibl//IdeaProjects//AnaViPA//src//AnaVi//Script_génération_carte//tablECnum.csv")
 
 #path Claire
-fillingDict("//Users//claire//Desktop//M1Gphy//ProjetAnnuel//src//AnaVi//Script_génération_carte//tablGeno.csv",
-            "//Users//claire//Desktop//M1Gphy//ProjetAnnuel//src//AnaVi//Script_génération_carte//tablECnum.csv")
-
+#fillingDict("//Users//claire//Desktop//M1Gphy//ProjetAnnuel//src//AnaVi//Script_génération_carte//tablGeno.csv",
+#            "//Users//claire//Desktop//M1Gphy//ProjetAnnuel//src//AnaVi//Script_génération_carte//tablECnum.csv")
