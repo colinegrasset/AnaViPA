@@ -47,24 +47,24 @@ def csv_tablo_Geno(file):
         __repr__(pli)
     return geno_array
 
-#def fillingDict():
+def fillingDict():
 
-   # ListGeno = csv_tablo_Geno("tablGeno.csv")
-   # ListNum=   csv_ECnum ("tablECnum.csv")
-   # for pli in ListGeno:
-    #    AllGeno = pli.genotype
-    #    print(AllGeno)
-     #   regle=re.compile(r"\S*")
-     #   rep= list(regle.finditer(AllGeno))
-      #  for i in rep:
-       #     print(i.group())
-        #    for pli2 in ListNum:
-         #       if i.group() == pli2.modif :
-         #            print(pli2.ECnum)
-         #            pli.mutation={i.group():pli2.ECnum}
-      #  print(pli.mutation)
+    ListGeno = csv_tablo_Geno("tablGeno.csv")
+    ListNum=   csv_ECnum ("tablECnum.csv")
+    for pli in ListGeno:
+        AllGeno = pli.genotype
+        print(AllGeno)
+        regle=re.compile(r"\S*")
+        rep= list(regle.finditer(AllGeno))
+        for i in rep:
+            print(i.group())
+            for pli2 in ListNum:
+                if i.group() == pli2.modif :
+                     print(pli2.ECnum)
+                     pli.mutation={i.group():pli2.ECnum}
+        print(pli.mutation)
         #print(rep)
         #rep.group(1)
 
 #csv_tablo_Geno(file)
-#fillingDict()
+fillingDict()
