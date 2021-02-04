@@ -4,7 +4,7 @@ import csv
 from AnaVi.Script_génération_carte.classNum import Num
 
 #file = "C://Users//User//IdeaProjects//AnaVi//src//AnaVi//Script_génération_carte//tablECnum.csv"
-file="C://Users//yuibl//IdeaProjects//AnaViPA//src//AnaVi//Script_génération_carte//tablECnum.csv"
+#file="C://Users//yuibl//IdeaProjects//AnaViPA//src//AnaVi//Script_génération_carte//tablECnum.csv"
 
 
 def __repr__(line):
@@ -36,4 +36,4 @@ def csv_ECnum(file):
     return listNum_array
 
 
-csv_ECnum(file)
+#csv_ECnum(file)
