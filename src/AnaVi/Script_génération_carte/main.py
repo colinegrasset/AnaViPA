@@ -13,10 +13,10 @@ def main(fileGeno,fileECnum,strainSearch,mapM):
     :param mapM: the basemap
     :return: svg file which is a map with modifications of the given strain
     """
-    listEcSouche = fillingDict(fileGeno,fileECnum,strainSearch)
+    listEcSouche = fillingDict(fileGeno,fileECnum)
     for i in listEcSouche:
         if i.strain == strainSearch or i.strain == strainSearch + "(2)":
             print(i.mutation.keys())
             readmap(mapM, i.mutation)
 
-main("tablGeno.csv","tablECnum.csv","5","carte_metabolique_pentose-arginine.svg")
+main("tablGeno.csv","tablECnum.csv","47","carte_metabolique_pentose-arginine.svg")

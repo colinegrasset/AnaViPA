@@ -4,7 +4,7 @@ from AnaVi.Script_génération_carte.Crea_list_Geno import csv_tablo_Geno
 from AnaVi.Script_génération_carte.Crea_list_Num import csv_ECnum
 import re
 
-def fillingDict(fileGeno,fileECnum,nbStrain):
+def fillingDict(fileGeno,fileECnum):
     """
     Function which associate modifications and ECnumber for each strain
     :param fileGeno: array with strains and modifications for each strain
