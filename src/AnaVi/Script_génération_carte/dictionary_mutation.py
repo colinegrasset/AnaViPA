@@ -14,7 +14,7 @@ def fillingDict(fileGeno,fileECnum):
     ListGeno = csv_tablo_Geno(fileGeno)
     ListNum = csv_ECnum(fileECnum)
     for pli in ListGeno:
-       # if pli.strain =="44":
+        if pli.strain =="44":
          AllGeno = pli.genotype
          #print(AllGeno)
          #print("avant regex")
@@ -38,7 +38,7 @@ def fillingDict(fileGeno,fileECnum):
          print("dictionnaire")
          #print(pli.mutation.keys())
          print(pli.mutation)
-    #return ListGeno
+    return ListGeno
 
 # path de coline
 #fillingDict("C://Users//User//IdeaProjects//AnaVi//src//AnaVi//Script_génération_carte//tablGeno.csv",

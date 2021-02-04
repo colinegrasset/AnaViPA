@@ -10,13 +10,12 @@ def main(fileGeno,fileECnum,strainSearch,mapM):
     print("************************************")
     for i in listEcSouche:
         if i.strain == strainSearch:
+           # print(i.mutation)
             print(i.mutation.keys())
             readmap(mapM, i.mutation)
 
 # path de coline
-main("tablGeno.csv",
-     "tablECnum.csv",
-     "40","carte_metabolique_pentose-arginine.svg")
+main("tablGeno.csv","tablECnum.csv","44","carte_metabolique_pentose-arginine.svg")
 
 # path de Rachel
 #fillingDict("C://Users//Utilisateur//IdeaProjects//AnaViPA//src//AnaVi//Script_génération_carte//tablGeno.csv",
