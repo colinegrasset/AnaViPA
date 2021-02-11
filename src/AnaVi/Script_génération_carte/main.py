@@ -22,7 +22,7 @@ def main(fileGeno,fileECnum,strainSearch,mapM):
         if i.strain == strainSearch or i.strain == strainSearch + "(2)":
 
             readmap(mapM, i.mutation)
-    print("the file outputMap.svg is update for the stain",nStrain)
+    print("the file outputMap.svg is updated for the strain",nStrain)
 
 tableGenotype = input("Genotype array pathway : ")
 tableECnumber = input("EC number array pathway : ")
