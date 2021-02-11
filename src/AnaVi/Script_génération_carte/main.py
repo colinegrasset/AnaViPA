@@ -20,8 +20,9 @@ def main(fileGeno,fileECnum,strainSearch,mapM):
     for i in listEcSouche:
         # Modification of the map according to the strain number
         if i.strain == strainSearch or i.strain == strainSearch + "(2)":
-            print(i.mutation.keys())
+
             readmap(mapM, i.mutation)
+    print("the file outputMap.svg is update for the stain",nStrain)
 
 tableGenotype = input("Genotype array pathway : ")
 tableECnumber = input("EC number array pathway : ")

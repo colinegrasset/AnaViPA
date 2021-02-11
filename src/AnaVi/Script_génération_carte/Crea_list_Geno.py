@@ -28,6 +28,7 @@ def csv_tablo_Geno(file):
                 pli.daughter = value
             if column == "Genotype":
                 pli.genotype = value
-            geno_array.append(pli)  # command which add a pli to the geno_array list
+        geno_array.append(pli)  # command which add a pli to the geno_array list
+
 
     return geno_array
