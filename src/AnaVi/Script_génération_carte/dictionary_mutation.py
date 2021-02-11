@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
-from AnaVi.Script_génération_carte.Crea_list_Geno import csv_tablo_Geno
-from AnaVi.Script_génération_carte.Crea_list_Num import csv_ECnum
+from Crea_list_Geno import csv_tablo_Geno
+from Crea_list_Num import csv_ECnum
 import re
 
 def fillingDict(fileGeno,fileECnum):

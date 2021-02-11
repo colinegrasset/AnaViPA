@@ -2,7 +2,7 @@
 # vim: set fileencoding=utf-8 :
 
 import csv
-from AnaVi.Script_génération_carte.classNum import Num
+from classNum import Num
 
 
 

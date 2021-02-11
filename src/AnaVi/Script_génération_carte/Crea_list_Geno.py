@@ -2,7 +2,7 @@
 # vim: set encoding=utf-8 :
 
 import csv
-from AnaVi.Script_génération_carte.classGeno import Geno
+from classGeno import Geno
 
 
 
