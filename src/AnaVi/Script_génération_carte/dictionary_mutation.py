@@ -12,19 +12,21 @@ def fillingDict(fileGeno,fileECnum):
     :param nbStrain: the number of the strain
     :return: a dictionary list (each dictionary is composed of modifications and EC number for one strain)
     """
+
     ListGeno = csv_tablo_Geno(fileGeno)
     ListNum = csv_ECnum(fileECnum)
 
     for pli in ListGeno:
+        # we create regex for pick the mutation of strain
          AllGeno = pli.genotype
          regle=re.compile(r"\S*")
          rep= list(regle.finditer(AllGeno))
 
-         for i in rep:
+         for i in rep: # for each mutations for each strains
             mut=i.group()
 
-            for pli2 in ListNum:
-                if mut == pli2.modif :
-                    pli.mutation[mut]=pli2.ECnum
+            for pli2 in ListNum: # we see each EC number with mutation in ListNum
+                if mut == pli2.modif :  # we compare if the mutation of train correspond to Ec number
+                    pli.mutation[mut]=pli2.ECnum  # we save the mutation and the Ec number in the dictionnary of the strain
 
     return ListGeno
