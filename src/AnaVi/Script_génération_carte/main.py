@@ -22,10 +22,10 @@ def main(fileGeno,fileECnum,strainSearch,mapM):
         if i.strain == strainSearch or i.strain == strainSearch + "(2)":
 
             readmap(mapM, i.mutation)
-    print("the file outputMap.svg is updated for the strain",nStrain)
+    print("the file outputMap.svg is updated for the strain", '3.1.3.11')
 
-tableGenotype = input("Genotype array pathway : ")
-tableECnumber = input("EC number array pathway : ")
-nStrain = input("Strain number : ")
-mapInput = input("Map pathway : ")
-main(tableGenotype,tableECnumber,nStrain,mapInput)
+##tableGenotype = input("Genotype array pathway : ")
+# tableECnumber = input("EC number array pathway : ")
+# nStrain = input("Strain number : ")
+# mapInput = input("Map pathway : ")
+main('tablGeno.csv','tablECnum.csv','3.1.3.11','carte_metabolique_pentose-arginine.svg')
