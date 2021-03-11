@@ -1,5 +1,7 @@
 #!/usr/bin/python
 
+from optparse import OptionParser
+
 from Link_svg import readmap
 from dictionary_mutation import fillingDict
 
@@ -28,4 +30,4 @@ def main(fileGeno,fileECnum,strainSearch,mapM):
 # tableECnumber = input("EC number array pathway : ")
 # nStrain = input("Strain number : ")
 # mapInput = input("Map pathway : ")
-main('tablGeno.csv','tablECnum.csv','3.1.3.11','carte_metabolique_pentose-arginine.svg')
+main('tablGeno.csv','tablECnum.csv','41','carte_metabolique_pentose-arginine.svg')

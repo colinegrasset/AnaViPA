@@ -65,16 +65,17 @@ def readmap(mapM, dict):
                             regleM = re.compile(r"\(fbr\)")
                             repM = list(regleM.finditer(p))
 
+
                             # Modification of the rectangle style according to the modification
                             if repD != []:
-                                grandchild.set('style', deletion)
                                 regle= re.compile(r"DELTA")
                                 texte=regle.sub("",p)
                                 print(texte);
 
+                                grandchild.set('style', deletion)
                                 txt = ET.SubElement(root, "ns0:text", space="preserve", style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:24px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none", x="1082.6063", y="115.92677", id="text1531")
                                 span = ET.SubElement(txt, 'ns0:tspan', role="line", id="tspan1529", x="1082.6063", y="115.92677")
-                                span.text = regle
+                             #   span.text = regle
                             elif repI != []:
                                 grandchild.set('style', insertion)
                             elif repSo != []:
