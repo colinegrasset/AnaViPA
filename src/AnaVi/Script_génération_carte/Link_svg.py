@@ -70,35 +70,74 @@ def readmap(mapM, dict):
                             if repD != []:
                                 regle= re.compile(r"DELTA")
                                 texte=regle.sub("", p)
-                                print(texte);
+
+
 
                                 grandchild.set('style', deletion)
                                 x = grandchild.attrib['x']
                                 y = grandchild.attrib['y']
-                                print(y)
-                                y = float(y)+30
-                                txt = ET.SubElement(root, "ns0:text", space="preserve", style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:24px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Italic';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ff2a2a;fill-opacity:1;stroke:none", x="1082.6063", y="115.92677", id="text1531")
-                                span = ET.SubElement(txt, 'ns0:tspan', role="line", id="tspan1529", x=x, y=str(y))
+
+                                y1 = float(y)+15
+                                y2 = float(y)+30
+                                ET.SubElement(root, 'ns0:rect', style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:50px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1;stroke:none", id="rect1500", width="40", height="20", x=x, y=str(y1))
+                                txt = ET.SubElement(root, "ns0:text", space="preserve", style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17px;line-height:1.5;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Italic';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:true", x=x, y=str(y2), id="text1531")
+                                span = ET.SubElement(txt, 'ns0:tspan', role="line", id="tspan1529", x=x, y=str(y2))
                                 span.text = texte
                             elif repI != []:
                                 regle2 = re.compile(r"^::")
                                 texte=regle2.sub("", p)
-                                print(texte);
+                                grandchild.set('style', deletion)
+                                x = grandchild.attrib['x']
+                                y = grandchild.attrib['y']
+
+                                y1 = float(y)+15
+                                y2 = float(y)+30
+                                ET.SubElement(root, 'ns0:rect', style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:50px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1;stroke:none", id="rect1500", width="40", height="20", x=x, y=str(y1))
+                                txt = ET.SubElement(root, "ns0:text", space="preserve", style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17px;line-height:1.5;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Italic';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:true", x=x, y=str(y2), id="text1531")
+                                span = ET.SubElement(txt, 'ns0:tspan', role="line", id="tspan1529", x=x, y=str(y2))
+                                span.text = texte
                                 grandchild.set('style', insertion)
                             elif repSo != []:
                                 regle3 = re.compile(r"\(-\)")
                                 texte=regle3.sub("", p)
-                                print(texte)
+                                grandchild.set('style', deletion)
+                                x = grandchild.attrib['x']
+                                y = grandchild.attrib['y']
+
+                                y1 = float(y)+15
+                                y2 = float(y)+30
+                                ET.SubElement(root, 'ns0:rect', style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:50px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1;stroke:none", id="rect1500", width="40", height="20", x=x, y=str(y1))
+                                txt = ET.SubElement(root, "ns0:text", space="preserve", style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17px;line-height:1.5;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Italic';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:true", x=x, y=str(y2), id="text1531")
+                                span = ET.SubElement(txt, 'ns0:tspan', role="line", id="tspan1529", x=x, y=str(y2))
+                                span.text = texte
+
                                 grandchild.set('style', sousExpression)
                             elif repSu != []:
                                 regle4 = re.compile(r"\([+]\)")
                                 texte=regle4.sub("", p)
-                                print(texte)
+                                grandchild.set('style', deletion)
+                                x = grandchild.attrib['x']
+                                y = grandchild.attrib['y']
+                                y1 = float(y)+15
+                                y2 = float(y)+30
+                                ET.SubElement(root, 'ns0:rect', style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:50px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1;stroke:none", id="rect1500", width="40", height="20", x=x, y=str(y1))
+                                txt = ET.SubElement(root, "ns0:text", space="preserve", style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17px;line-height:1.5;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Italic';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:true", x=x, y=str(y2), id="text1531")
+                                span = ET.SubElement(txt, 'ns0:tspan', role="line", id="tspan1529", x=x, y=str(y2))
+                                span.text = texte
+
                                 grandchild.set('style', surExpression)
                             elif repM != []:
                                 regle5 = re.compile(r"\(fbr\)")
                                 texte=regle5.sub("", p)
-                                print(texte)
+                                grandchild.set('style', deletion)
+                                x = grandchild.attrib['x']
+                                y = grandchild.attrib['y']
+                                y1 = float(y)+15
+                                y2 = float(y)+30
+                                ET.SubElement(root, 'ns0:rect', style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:50px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1;stroke:none", id="rect1500", width="40", height="20", x=x, y=str(y1))
+                                txt = ET.SubElement(root, "ns0:text", space="preserve", style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17px;line-height:1.5;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Italic';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:true", x=x, y=str(y2), id="text1531")
+                                span = ET.SubElement(txt, 'ns0:tspan', role="line", id="tspan1529", x=x, y=str(y2))
+                                span.text = texte
                                 grandchild.set('style', mutantFbr)
                 # Write a new svg file : the map with gene modifications
                 tree.write('outputMap.svg')
