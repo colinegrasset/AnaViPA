@@ -34,6 +34,15 @@ def legende(root):
     span2 = ET.SubElement(span, 'ns0:tspan', style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:24px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Italic';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal", id="tspan1575")
     span2.text = " fbr"
 
+def modifOutput():
+    f = open('outputMap.html','a+')
+    f.write('<!DOCTYPE html><html><head><style></style></head><body>')
+    file = open("outputMap.svg",'r')
+    for line in file:
+        f.write(line)
+    f.write('</body></html>')
+    f.close()
+
 def readmap(mapM, dict):
     """
     A function that modifies the map to make appear strain's modifications
@@ -51,7 +60,6 @@ def readmap(mapM, dict):
 
     for child in root:
         print(child.tag)
-
         if child.tag == "{http://www.w3.org/2000/svg}g":
             for grandchild in child:
                 if grandchild.tag == "{http://www.w3.org/2000/svg}rect":
@@ -144,7 +152,9 @@ def readmap(mapM, dict):
                                 span.text = texte
                                 grandchild.set('style', mutantFbr)
                 # Write a new svg file : the map with gene modifications
-                tree.write('outputMap.html')
+                tree.write('outputMap.svg')
+    modifOutput()
+
 
 # Rectangle styles on the map according to the modification type
 sousExpression = 'fill:#f9f9f9;fill-opacity:0.26;stroke:#f7a600;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1'
