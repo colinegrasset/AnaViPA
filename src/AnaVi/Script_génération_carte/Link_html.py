@@ -1,6 +1,6 @@
 import xml.etree.ElementTree as ET
 import re
-
+import os
 
 
 def legende(root):
@@ -35,7 +35,11 @@ def legende(root):
     span2.text = " fbr"
 
 def modifOutput():
-    f = open('outputMap.html','a+')
+    if os.path.exists("OutputMapNew.svg"):
+        os.remove("OutputMapNew.svg")
+    else:
+        print("The file does not exist")
+    f = open('OutputMapNew.svg','a+')
     f.write('<!DOCTYPE html><html><head><style></style></head><body>')
     file = open("outputMap.svg",'r')
     for line in file:
