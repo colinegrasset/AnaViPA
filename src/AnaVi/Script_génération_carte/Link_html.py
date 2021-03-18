@@ -45,7 +45,9 @@ def modifOutput():
     for line in file:
         f.write(line)
     f.write('</body></html>')
+
     f.close()
+
 
 def readmap(mapM, dict):
     """
