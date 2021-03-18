@@ -62,10 +62,10 @@ def readmap(mapM, dict):
     root = tree.getroot()
     legende(root)
     # Range of the svg file to acces to "rect" tag
-    print(root.tag)
+    #print(root.tag)
 
     for child in root:
-        print(child.tag)
+        #print(child.tag)
         if child.tag == "{http://www.w3.org/2000/svg}g":
             for grandchild in child:
                 if grandchild.tag == "{http://www.w3.org/2000/svg}rect":
