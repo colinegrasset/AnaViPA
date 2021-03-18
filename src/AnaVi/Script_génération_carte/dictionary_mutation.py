@@ -30,4 +30,7 @@ def fillingDict(fileGeno,fileECnum):
                     pli.mutation[mut]=pli2.ECnum  # we save the mutation and the Ec number in the dictionnary of the strain
 
     return ListGeno
+
+
+
 #fillingDict("tablGeno.csv","tablECnum.csv")
