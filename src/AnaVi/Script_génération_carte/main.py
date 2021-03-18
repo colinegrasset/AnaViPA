@@ -5,7 +5,7 @@ from optparse import OptionParser
 from AnaVi.Script_génération_carte.Crea_list_Pheno import csv_tablo_Pheno
 from Link_html import readmap
 from dictionary_mutation import fillingDict
-
+from Histogramme import barplot
 
 def main(fileGeno,fileECnum,strainSearch,mapM):
     """
@@ -29,7 +29,8 @@ def main(fileGeno,fileECnum,strainSearch,mapM):
     print("the file outputMap.svg is updated for the strain", strainSearch)
     for i in listPheno:
         if i.strain == strainSearch :
-             print(i.listdo)
+             print(i.listdo);
+             barplot(i.listdo,strainSearch)
 
 
 ##tableGenotype = input("Genotype array pathway : ")

@@ -7,5 +7,4 @@ def barplot(listSouche,numSouche):
     plt.title('DO souche '+str(numSouche))
     fig.savefig('barplot.png', dpi=fig.dpi)
 
-liste = [12.5,3.5,6.8]
-barplot(liste,12)
+
