@@ -26,7 +26,7 @@ def main(fileGeno,fileECnum,strainSearch,mapM):
         if i.strain == strainSearch or i.strain == strainSearch + "(2)":
 
             readmap(mapM, i.mutation)
-    print("the file outputMap.svg is updated for the strain", '3.1.3.11')
+    print("the file outputMap.svg is updated for the strain", strainSearch)
     for i in listPheno:
         if i.strain == strainSearch :
              print(i.listdo)
@@ -36,4 +36,4 @@ def main(fileGeno,fileECnum,strainSearch,mapM):
 # tableECnumber = input("EC number array pathway : ")
 # nStrain = input("Strain number : ")
 # mapInput = input("Map pathway : ")
-main('tablGeno.csv','tablECnum.csv','6','carte_metabolique_pentose-arginine.svg')
+main('tablGeno.csv','tablECnum.csv','8','carte_metabolique_pentose-arginine.svg')
