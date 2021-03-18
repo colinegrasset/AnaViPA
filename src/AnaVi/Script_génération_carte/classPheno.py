@@ -10,7 +10,7 @@ class Pheno:
         # integer: third do
         self.do3 = None
         # list de do
-        self.listdo = None
+        self.listdo = []
 
     def add_trick(self, trick):
         self.tricks.append(trick)

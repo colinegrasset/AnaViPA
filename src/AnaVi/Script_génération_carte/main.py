@@ -2,7 +2,7 @@
 
 from optparse import OptionParser
 
-
+from AnaVi.Script_génération_carte.Crea_list_Pheno import csv_tablo_Pheno
 from Link_html import readmap
 from dictionary_mutation import fillingDict
 
@@ -19,6 +19,7 @@ def main(fileGeno,fileECnum,strainSearch,mapM):
 
     # Create a dictionnary with ECnumber and modifications for each ECnumber
     listEcSouche = fillingDict(fileGeno,fileECnum)
+    listPheno = csv_tablo_Pheno('tableau-DO.csv')
     # Range in the dictionnary of strain and modifications
     for i in listEcSouche:
         # Modification of the map according to the strain number
@@ -26,6 +27,10 @@ def main(fileGeno,fileECnum,strainSearch,mapM):
 
             readmap(mapM, i.mutation)
     print("the file outputMap.svg is updated for the strain", '3.1.3.11')
+    for i in listPheno:
+        if i.strain == strainSearch :
+             print(i.listdo)
+
 
 ##tableGenotype = input("Genotype array pathway : ")
 # tableECnumber = input("EC number array pathway : ")

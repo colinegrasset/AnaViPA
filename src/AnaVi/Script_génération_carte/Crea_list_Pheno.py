@@ -22,17 +22,23 @@ def csv_tablo_Pheno(file):
 
         # range the csv file value by value n moving from left to right and go to the next line
         for column, value in row.items():
-            if column == "Souche":
+
+            if column == "ï»¿souche":
                 pli.strain = value
+
+
             if column == "DO6":
                 pli.do1 = value
+
             if column == "DO24":
                 pli.do2 = value
+
             if column == "Production":
                 pli.do3 = value
-            pli.listdo.add(pli.do1)
-            pli.listdo.add(pli.do2)
-            pli.listdo.add(pli.do3)
+
+        pli.listdo.append(pli.do1)
+        pli.listdo.append(pli.do2)
+        pli.listdo.append(pli.do3)
         pheno_array.append(pli)  # command which add a pli to the geno_array list
 
 
