@@ -34,6 +34,9 @@ def legende(root):
     span2 = ET.SubElement(span, 'ns0:tspan', style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:24px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Italic';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal", id="tspan1575")
     span2.text = " fbr"
 
+
+
+
 def readmap(mapM, dict):
     """
     A function that modifies the map to make appear strain's modifications
@@ -47,7 +50,10 @@ def readmap(mapM, dict):
     root = tree.getroot()
     legende(root)
     # Range of the svg file to acces to "rect" tag
+    #print(root.tag)
+
     for child in root:
+        #print(child.tag)
         if child.tag == "{http://www.w3.org/2000/svg}g":
             for grandchild in child:
                 if grandchild.tag == "{http://www.w3.org/2000/svg}rect":
@@ -80,7 +86,7 @@ def readmap(mapM, dict):
                                 y1 = float(y)+15
                                 y2 = float(y)+30
                                 ET.SubElement(root, 'ns0:rect', style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:50px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1;stroke:none", id="rect1500", width="40", height="20", x=x, y=str(y1))
-                                txt = ET.SubElement(root, "ns0:text", space="preserve", style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17px;line-height:1.5;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Italic';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:true", x=x, y=str(y2), id="text1531")
+                                txt = ET.SubElement(root, "ns0:text", space="preserve", style="font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:12px;line-height:1.5;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold Italic';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ff0000;fill-opacity:1;stroke:true;", x=x, y=str(y2), id="text1531")
                                 span = ET.SubElement(txt, 'ns0:tspan', role="line", id="tspan1529", x=x, y=str(y2))
                                 span.text = texte
                             elif repI != []:
@@ -93,7 +99,7 @@ def readmap(mapM, dict):
                                 y1 = float(y)+15
                                 y2 = float(y)+30
                                 ET.SubElement(root, 'ns0:rect', style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:50px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1;stroke:none", id="rect1500", width="40", height="20", x=x, y=str(y1))
-                                txt = ET.SubElement(root, "ns0:text", space="preserve", style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17px;line-height:1.5;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Italic';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:true", x=x, y=str(y2), id="text1531")
+                                txt = ET.SubElement(root, "ns0:text", space="preserve", style="font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:12px;line-height:1.5;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold Italic';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#0000ff;fill-opacity:1;stroke:true;", x=x, y=str(y2), id="text1531")
                                 span = ET.SubElement(txt, 'ns0:tspan', role="line", id="tspan1529", x=x, y=str(y2))
                                 span.text = texte
                                 grandchild.set('style', insertion)
@@ -107,7 +113,7 @@ def readmap(mapM, dict):
                                 y1 = float(y)+15
                                 y2 = float(y)+30
                                 ET.SubElement(root, 'ns0:rect', style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:50px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1;stroke:none", id="rect1500", width="40", height="20", x=x, y=str(y1))
-                                txt = ET.SubElement(root, "ns0:text", space="preserve", style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17px;line-height:1.5;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Italic';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:true", x=x, y=str(y2), id="text1531")
+                                txt = ET.SubElement(root, "ns0:text", space="preserve", style="font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:12px;line-height:1.5;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold Italic';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ff7f2a;fill-opacity:1;stroke:true;", x=x, y=str(y2), id="text1531")
                                 span = ET.SubElement(txt, 'ns0:tspan', role="line", id="tspan1529", x=x, y=str(y2))
                                 span.text = texte
 
@@ -121,7 +127,7 @@ def readmap(mapM, dict):
                                 y1 = float(y)+15
                                 y2 = float(y)+30
                                 ET.SubElement(root, 'ns0:rect', style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:50px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1;stroke:none", id="rect1500", width="40", height="20", x=x, y=str(y1))
-                                txt = ET.SubElement(root, "ns0:text", space="preserve", style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17px;line-height:1.5;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Italic';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:true", x=x, y=str(y2), id="text1531")
+                                txt = ET.SubElement(root, "ns0:text", space="preserve", style="font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:12px;line-height:1.5;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold Italic';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#008000;fill-opacity:1;stroke:true;", x=x, y=str(y2), id="text1531")
                                 span = ET.SubElement(txt, 'ns0:tspan', role="line", id="tspan1529", x=x, y=str(y2))
                                 span.text = texte
 
@@ -135,12 +141,14 @@ def readmap(mapM, dict):
                                 y1 = float(y)+15
                                 y2 = float(y)+30
                                 ET.SubElement(root, 'ns0:rect', style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:50px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1;stroke:none", id="rect1500", width="40", height="20", x=x, y=str(y1))
-                                txt = ET.SubElement(root, "ns0:text", space="preserve", style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17px;line-height:1.5;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Italic';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:true", x=x, y=str(y2), id="text1531")
+                                txt = ET.SubElement(root, "ns0:text", space="preserve", style="font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:12px;line-height:1.5;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold Italic';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#800080;fill-opacity:1;stroke:true;", x=x, y=str(y2), id="text1531")
                                 span = ET.SubElement(txt, 'ns0:tspan', role="line", id="tspan1529", x=x, y=str(y2))
                                 span.text = texte
                                 grandchild.set('style', mutantFbr)
                 # Write a new svg file : the map with gene modifications
                 tree.write('outputMap.svg')
+
+
 
 # Rectangle styles on the map according to the modification type
 sousExpression = 'fill:#f9f9f9;fill-opacity:0.26;stroke:#f7a600;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1'
