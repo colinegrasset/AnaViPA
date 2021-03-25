@@ -26,7 +26,6 @@ def csv_tablo_Pheno(file):
             if column == "ï»¿souche":
                 pli.strain = value
 
-
             if column == "DO6":
                 pli.do1 = value
 
@@ -36,9 +35,9 @@ def csv_tablo_Pheno(file):
             if column == "Production":
                 pli.do3 = value
 
-        pli.listdo.append(pli.do1)
-        pli.listdo.append(pli.do2)
-        pli.listdo.append(pli.do3)
+        pli.listdo.append(float(pli.do1))
+        pli.listdo.append(float(pli.do2))
+        pli.listdo.append(float(pli.do3))
         pheno_array.append(pli)  # command which add a pli to the geno_array list
 
 

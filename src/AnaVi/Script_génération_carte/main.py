@@ -6,6 +6,7 @@ from AnaVi.Script_génération_carte.Crea_list_Pheno import csv_tablo_Pheno
 from Link_svg import readmap
 from dictionary_mutation import fillingDict
 from Histogramme import barplot
+from Histogramme import addBarplotSVG
 
 def main(fileGeno,fileECnum,strainSearch,mapM):
     """
@@ -31,12 +32,13 @@ def main(fileGeno,fileECnum,strainSearch,mapM):
         if i.strain == strainSearch :
              print(i.listdo);
              barplot(i.listdo,strainSearch)
-import matplot
+             addBarplotSVG("outputMap.svg")
+
 
 ##tableGenotype = input("Genotype array pathway : ")
 # tableECnumber = input("EC number array pathway : ")
 # nStrain = input("Strain number : ")
 # mapInput = input("Map pathway : ")
 
-main('tablGeno.csv','tablECnum.csv','47','carte_metabolique_pentose-arginine.svg')
+main('tablGeno.csv','tablECnum.csv','12','carte_metabolique_pentose-arginine.svg')
 
