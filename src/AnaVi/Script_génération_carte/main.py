@@ -3,7 +3,7 @@
 from optparse import OptionParser
 
 from AnaVi.Script_génération_carte.Crea_list_Pheno import csv_tablo_Pheno
-from Link_html import readmap
+from Link_svg import readmap
 from dictionary_mutation import fillingDict
 from Histogramme import barplot
 
@@ -37,4 +37,6 @@ import matplot
 # tableECnumber = input("EC number array pathway : ")
 # nStrain = input("Strain number : ")
 # mapInput = input("Map pathway : ")
+
 main('tablGeno.csv','tablECnum.csv','44','carte_metabolique_pentose-arginine.svg')
+
