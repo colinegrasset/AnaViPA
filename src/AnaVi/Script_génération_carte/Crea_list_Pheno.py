@@ -3,7 +3,7 @@
 
 import csv
 
-from AnaVi.Script_génération_carte.classPheno import Pheno
+from classPheno import Pheno
 
 
 def __repr__(pli):
@@ -23,13 +23,13 @@ def csv_tablo_Pheno(file):
         # range the csv file value by value n moving from left to right and go to the next line
         for column, value in row.items():
 
-            if column == "ï»¿souche":
+            if column == "souche":
                 pli.strain = value
 
-            if column == "DO6":
+            if column == "DO6h":
                 pli.do1 = value
 
-            if column == "DO24":
+            if column == "DO24h":
                 pli.do2 = value
 
             if column == "Production":

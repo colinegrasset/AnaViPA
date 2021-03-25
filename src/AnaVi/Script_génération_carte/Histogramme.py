@@ -9,7 +9,6 @@ def barplot(listSouche,numSouche):
     fig.savefig('barplot.png', dpi=fig.dpi)
 
 def addBarplotSVG(mapOutput):
-    print("tot")
     tree = ET.parse(mapOutput)
     root = tree.getroot()
     ET.SubElement(root,'ns0:image', href="barplot.png",id="image1037", x="31.137264", y="695.38867", height="325.21158", width="361.79694")
