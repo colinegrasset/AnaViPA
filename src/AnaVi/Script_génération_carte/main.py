@@ -38,5 +38,5 @@ import matplot
 # nStrain = input("Strain number : ")
 # mapInput = input("Map pathway : ")
 
-main('tablGeno.csv','tablECnum.csv','44','carte_metabolique_pentose-arginine.svg')
+main('tablGeno.csv','tablECnum.csv','47','carte_metabolique_pentose-arginine.svg')
 
