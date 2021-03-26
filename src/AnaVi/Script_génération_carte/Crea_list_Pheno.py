@@ -15,7 +15,7 @@ def csv_tablo_Pheno(file):
     csv.register_dialect('myDialect', delimiter=';', quotechar='|')
     reader = csv.DictReader(open(file, "r"), dialect='myDialect')
 
-    pheno_array = []  # create a list which contains the classGeno class X the number of line in csv file
+    pheno_array = []  # create a list which contains the classPheno class X the number of line in csv file
 
     for row in reader:
         pli = Pheno()  # pli list take the values of the Pheno class in classPheno package
@@ -38,7 +38,7 @@ def csv_tablo_Pheno(file):
         pli.listdo.append(float(pli.do1))
         pli.listdo.append(float(pli.do2))
         pli.listdo.append(float(pli.do3))
-        pheno_array.append(pli)  # command which add a pli to the geno_array list
+        pheno_array.append(pli)  # command which add a pli to the pheno_array list
 
 
     return pheno_array

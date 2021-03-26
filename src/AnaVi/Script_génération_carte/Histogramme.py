@@ -1,6 +1,7 @@
 import xml.etree.ElementTree as ET
 import matplotlib.pyplot as plt
 
+# Function to create a DO barplot for a strain number
 def barplot(listSouche,numSouche):
     fig = plt.figure()
     plt.bar(range(3), listSouche)
@@ -8,6 +9,7 @@ def barplot(listSouche,numSouche):
     plt.title('DO souche '+str(numSouche))
     fig.savefig('barplot.png', dpi=fig.dpi)
 
+# Create a map with the strain DO barplot on it
 def addBarplotSVG(mapOutput):
     tree = ET.parse(mapOutput)
     root = tree.getroot()

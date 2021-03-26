@@ -25,20 +25,21 @@ def main(fileGeno,fileECnum,strainSearch,mapM):
     for i in listEcSouche:
         # Modification of the map according to the strain number
         if i.strain == strainSearch or i.strain == strainSearch + "(2)":
-
             readmap(mapM, i.mutation)
+
     print("the file outputMap.svg is updated for the strain", strainSearch)
+    # Creation of a map with a DO barplot
     for i in listPheno:
         if i.strain == strainSearch :
-             print(i.listdo);
              barplot(i.listdo,strainSearch)
              addBarplotSVG("outputMap.svg")
+             print("the file outputMapBarplot.svg is updated for the strain", strainSearch)
 
 
-##tableGenotype = input("Genotype array pathway : ")
-# tableECnumber = input("EC number array pathway : ")
-# nStrain = input("Strain number : ")
-# mapInput = input("Map pathway : ")
+tableGenotype = input("Genotype array pathway : ")
+tableECnumber = input("EC number array pathway : ")
+nStrain = input("Strain number : ")
+mapInput = input("Map pathway : ")
 
-main('tablGeno.csv','tablECnum.csv','12','carte_metabolique_pentose-arginine.svg')
+main(tableGenotype,tableECnumber,nStrain,mapInput)
 
