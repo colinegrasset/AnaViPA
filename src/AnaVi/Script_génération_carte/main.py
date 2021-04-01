@@ -8,7 +8,7 @@ from dictionary_mutation import fillingDict
 from Histogramme import barplot
 from Histogramme import addBarplotSVG
 
-def main(fileGeno,fileECnum,strainSearch,mapM):
+def main(fileGeno,fileECnum,strainSearch,mapM,tableauDO):
     """
     Main function which create a map with all modifications of a given strain
     :param fileGeno: array with strains and modifications for each strain
@@ -20,7 +20,7 @@ def main(fileGeno,fileECnum,strainSearch,mapM):
 
     # Create a dictionnary with ECnumber and modifications for each ECnumber
     listEcSouche = fillingDict(fileGeno,fileECnum)
-    listPheno = csv_tablo_Pheno('tableau-DO.csv')
+    listPheno = csv_tablo_Pheno(tableauDO)
     # Range in the dictionnary of strain and modifications
     for i in listEcSouche:
         # Modification of the map according to the strain number
@@ -38,8 +38,9 @@ def main(fileGeno,fileECnum,strainSearch,mapM):
 
 tableGenotype = input("Genotype array pathway : ")
 tableECnumber = input("EC number array pathway : ")
+tableauDO = input("DO array pathway :")
 nStrain = input("Strain number : ")
 mapInput = input("Map pathway : ")
 
-main(tableGenotype,tableECnumber,nStrain,mapInput)
+main(tableGenotype,tableECnumber,nStrain,mapInput,tableauDO)
 
